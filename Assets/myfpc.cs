@@ -35,7 +35,7 @@ public class myfpc : MonoBehaviour
 
     void FixedUpdate()
     {
-        MovementImproved();
+        Movement();
     }
 
     private void Movement()
