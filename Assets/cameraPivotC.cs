@@ -15,49 +15,33 @@ public class cameraPivotC : MonoBehaviour
 
     void Awake()
     {
-        Cursor.lockState = CursorLockMode.Locked; // blocca il mouse a rimanere al centro della visuale , fa cagare , usare control-p per uscire di scena 
+       // Cursor.lockState = CursorLockMode.Locked; // blocca il mouse a rimanere al centro della visuale , fa cagare , usare control-p per uscire di scena 
         initialRot = this.transform.rotation;
         initialCamPos = this.transform.FindChild("Main Camera").position;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-
-
-
         MouseLook();
         MouseZoom();
         //ResetPosition();
         ResetPositionCo();
-
-    
-
     }
-
-
-
+    
     private void MouseLook()
     {
         float mouseX = Input.GetAxis("Mouse X");
-
         float mouseY = Input.GetAxis("Mouse Y");
-
-
+        
         transform.Rotate(Vector3.up, 180 * Time.deltaTime * mouseX, Space.World);
         transform.Rotate(-transform.right, 180 * Time.deltaTime * mouseY, Space.World);
     }
 
     private void MouseZoom()
     {
-
         float mouseWheel = Input.GetAxis("Mouse ScrollWheel");
-
-
+        
         transform.FindChild("Main Camera").position += transform.FindChild("Main Camera").forward * Time.deltaTime * mouseWheel * 500;
-
-     
-
     }
 
     private void ResetPosition()
@@ -85,9 +69,7 @@ public class cameraPivotC : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-
             StartCoroutine(Resetting());
-
         }
     }
 
@@ -108,8 +90,5 @@ public class cameraPivotC : MonoBehaviour
         }
 
         t = 0;
-
-
     }
-
 }
